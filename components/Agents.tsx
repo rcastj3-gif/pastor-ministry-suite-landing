@@ -64,18 +64,18 @@ export default function Agents() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16 px-4 sm:px-0"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             THE 7 AGENTS THAT
             <span className="text-red-600"> RECLAIM YOUR WEEK</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             This isn't another church software to learn. This is a digital ministry team that works however you already work.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-0">
           {agents.map((agent, index) => (
             <motion.div
               key={agent.name}
@@ -83,14 +83,14 @@ export default function Agents() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-50 rounded-xl p-6 hover:shadow-xl transition-shadow border border-gray-100"
+              className="bg-gray-50 rounded-xl p-5 sm:p-6 hover:shadow-xl transition-shadow border border-gray-100"
             >
-              <div className={`w-14 h-14 ${agent.color} rounded-lg flex items-center justify-center mb-4`}>
-                <agent.icon className="w-7 h-7 text-white" />
+              <div className={`w-12 h-12 sm:w-14 sm:h-14 ${agent.color} rounded-lg flex items-center justify-center mb-3 sm:mb-4`}>
+                <agent.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{agent.name}</h3>
-              <p className="text-sm font-semibold text-green-600 mb-3">{agent.savings} per week</p>
-              <p className="text-gray-600">{agent.description}</p>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{agent.name}</h3>
+              <p className="text-sm font-semibold text-green-600 mb-2 sm:mb-3">{agent.savings} per week</p>
+              <p className="text-gray-600 text-sm sm:text-base">{agent.description}</p>
             </motion.div>
           ))}
         </div>

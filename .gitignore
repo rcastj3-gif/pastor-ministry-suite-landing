@@ -32,3 +32,5 @@ logs/
 # Build
 build/
 coverage/
+.vercel
+.env*.local

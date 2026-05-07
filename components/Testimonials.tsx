@@ -30,15 +30,15 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16 px-4 sm:px-0"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4">
             WHAT PASTORS ARE
             <span className="text-sky-400"> SAYING</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-0">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.author}
@@ -46,10 +46,10 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
+              className="bg-white/5 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-white/10"
             >
-              <Quote className="w-10 h-10 text-red-500 mb-4" />
-              <p className="text-lg text-gray-300 mb-6 italic">"{testimonial.quote}"</p>
+              <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-red-500 mb-3 sm:mb-4" />
+              <p className="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6 italic">"{testimonial.quote}"</p>
               <div>
                 <p className="font-bold text-white">{testimonial.author}</p>
                 <p className="text-sm text-gray-400">{testimonial.church}</p>

@@ -28,7 +28,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
         >
           STOP BEING A
           <span className="block text-red-500">CHURCH ADMINISTRATOR.</span>
@@ -40,7 +40,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-8"
+          className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 px-2 sm:px-0"
         >
           The average pastor spends <span className="text-white font-semibold">70% of their week</span> on tasks that don't require a pastor.
           Reclaim <span className="text-white font-semibold">13+ hours weekly</span> with 7 specialized AI agents.
@@ -50,17 +50,17 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4 sm:px-0"
         >
           <a
             href="#pricing"
-            className="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg text-lg transition-colors"
+            className="px-6 sm:px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg text-base sm:text-lg transition-colors whitespace-normal sm:whitespace-nowrap"
           >
             START RECLAIMING MY TIME
           </a>
           <a
             href="#how-it-works"
-            className="px-8 py-4 bg-transparent border-2 border-white/30 hover:border-white text-white font-semibold rounded-lg text-lg transition-colors"
+            className="px-6 sm:px-8 py-4 bg-transparent border-2 border-white/30 hover:border-white text-white font-semibold rounded-lg text-base sm:text-lg transition-colors"
           >
             SEE HOW IT WORKS
           </a>
@@ -70,27 +70,27 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto px-4 sm:px-0"
         >
-          <div className="flex items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-lg p-4">
-            <Clock className="w-6 h-6 text-sky-400" />
+          <div className="flex items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-lg p-3 sm:p-4">
+            <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-sky-400 flex-shrink-0" />
             <div className="text-left">
-              <p className="text-2xl font-bold">13+ hrs</p>
-              <p className="text-sm text-gray-400">Weekly savings</p>
+              <p className="text-xl sm:text-2xl font-bold">13+ hrs</p>
+              <p className="text-xs sm:text-sm text-gray-400">Weekly savings</p>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-lg p-4">
-            <DollarSign className="w-6 h-6 text-green-400" />
+          <div className="flex items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-lg p-3 sm:p-4">
+            <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 text-green-400 flex-shrink-0" />
             <div className="text-left">
-              <p className="text-2xl font-bold">$2K-9K</p>
-              <p className="text-sm text-gray-400">Annual savings</p>
+              <p className="text-xl sm:text-2xl font-bold">$2K-9K</p>
+              <p className="text-xs sm:text-sm text-gray-400">Annual savings</p>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-lg p-4">
-            <Heart className="w-6 h-6 text-red-400" />
+          <div className="flex items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-lg p-3 sm:p-4">
+            <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-red-400 flex-shrink-0" />
             <div className="text-left">
-              <p className="text-2xl font-bold">30 Day</p>
-              <p className="text-sm text-gray-400">Money-back guarantee</p>
+              <p className="text-xl sm:text-2xl font-bold">30 Day</p>
+              <p className="text-xs sm:text-sm text-gray-400">Money-back guarantee</p>
             </div>
           </div>
         </motion.div>

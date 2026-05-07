@@ -4,10 +4,10 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-400 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-white text-xl font-bold mb-4">Pastor Ministry Suite</h3>
-            <p className="mb-4 max-w-md">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+          <div className="col-span-1 sm:col-span-2">
+            <h3 className="text-white text-lg sm:text-xl font-bold mb-4">Pastor Ministry Suite</h3>
+            <p className="mb-4 max-w-md text-sm sm:text-base">
               7 AI agents designed to return 13+ hours weekly to pastors. 
               Stop being a church administrator. Start being a pastor.
             </p>

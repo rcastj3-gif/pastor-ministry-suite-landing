@@ -38,9 +38,9 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
     <div className="border-b border-gray-200 last:border-0">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-6 flex items-center justify-between text-left"
+        className="w-full py-4 sm:py-6 flex items-center justify-between text-left gap-4"
       >
-        <span className="text-lg font-semibold text-gray-900">{question}</span>
+        <span className="text-base sm:text-lg font-semibold text-gray-900 pr-2">{question}</span>
         {isOpen ? (
           <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
         ) : (
@@ -70,9 +70,9 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16 px-4 sm:px-0"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             FREQUENTLY ASKED
             <span className="text-red-600"> QUESTIONS</span>
           </h2>
@@ -83,7 +83,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-white rounded-2xl shadow-lg p-8"
+          className="bg-white rounded-2xl shadow-lg p-5 sm:p-8 mx-4 sm:mx-0"
         >
           {faqs.map((faq) => (
             <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />

@@ -33,7 +33,7 @@ export default function Savings() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start px-4 sm:px-0">
           {/* Comparison Table */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -76,11 +76,11 @@ export default function Savings() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl shadow-lg p-8 text-white">
-              <h3 className="text-2xl font-bold mb-2">Pastor Ministry Suite</h3>
-              <p className="text-red-100 mb-6">All 7 agents. One price. No add-ons.</p>
-              <div className="flex items-baseline gap-2 mb-6">
-                <span className="text-5xl font-bold">$97</span>
+            <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl shadow-lg p-6 sm:p-8 text-white">
+              <h3 className="text-xl sm:text-2xl font-bold mb-2">Pastor Ministry Suite</h3>
+              <p className="text-red-100 mb-4 sm:mb-6 text-sm sm:text-base">All 7 agents. One price. No add-ons.</p>
+              <div className="flex items-baseline gap-2 mb-4 sm:mb-6">
+                <span className="text-4xl sm:text-5xl font-bold">$97</span>
                 <span className="text-red-200">/month</span>
               </div>
               <ul className="space-y-3 mb-8">
@@ -109,14 +109,14 @@ export default function Savings() {
               </a>
             </div>
 
-            <div className="bg-green-100 rounded-xl p-6 border border-green-200">
-              <div className="flex items-center justify-between mb-2">
-                <span className="font-semibold text-green-800">Your Monthly Savings</span>
-                <span className="text-2xl font-bold text-green-700">$169-749</span>
+            <div className="bg-green-100 rounded-xl p-4 sm:p-6 border border-green-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-1 sm:gap-0">
+                <span className="font-semibold text-green-800 text-sm sm:text-base">Your Monthly Savings</span>
+                <span className="text-xl sm:text-2xl font-bold text-green-700">$169-749</span>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="font-semibold text-green-800">Annual Savings</span>
-                <span className="text-3xl font-bold text-green-700">$2,028-8,988</span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-0">
+                <span className="font-semibold text-green-800 text-sm sm:text-base">Annual Savings</span>
+                <span className="text-2xl sm:text-3xl font-bold text-green-700">$2,028-8,988</span>
               </div>
             </div>
           </motion.div>

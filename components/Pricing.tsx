@@ -76,7 +76,7 @@ export default function Pricing() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-0">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -84,9 +84,9 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative rounded-2xl p-8 ${
+              className={`relative rounded-2xl p-6 sm:p-8 ${
                 plan.popular
-                  ? "bg-gradient-to-br from-red-600 to-red-700 text-white shadow-2xl scale-105"
+                  ? "bg-gradient-to-br from-red-600 to-red-700 text-white shadow-2xl md:scale-105"
                   : "bg-gray-50 border border-gray-200"
               }`}
             >
@@ -98,15 +98,15 @@ export default function Pricing() {
                 </div>
               )}
 
-              <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? "text-white" : "text-gray-900"}`}>
+              <h3 className={`text-xl sm:text-2xl font-bold mb-2 ${plan.popular ? "text-white" : "text-gray-900"}`}>
                 {plan.name}
               </h3>
               <p className={`mb-6 ${plan.popular ? "text-red-100" : "text-gray-600"}`}>
                 {plan.description}
               </p>
 
-              <div className="flex items-baseline gap-2 mb-8">
-                <span className={`text-5xl font-bold ${plan.popular ? "text-white" : "text-gray-900"}`}>
+              <div className="flex items-baseline gap-2 mb-6 sm:mb-8">
+                <span className={`text-4xl sm:text-5xl font-bold ${plan.popular ? "text-white" : "text-gray-900"}`}>
                   {plan.price}
                 </span>
                 <span className={plan.popular ? "text-red-200" : "text-gray-500"}>/month</span>
@@ -123,7 +123,7 @@ export default function Pricing() {
 
               <a
                 href="#"
-                className={`block w-full text-center py-4 rounded-lg font-bold transition-colors ${
+                className={`block w-full text-center py-3 sm:py-4 rounded-lg font-bold transition-colors text-sm sm:text-base ${
                   plan.popular
                     ? "bg-white text-red-600 hover:bg-red-50"
                     : "bg-red-600 text-white hover:bg-red-700"
