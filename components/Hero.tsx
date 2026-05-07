@@ -3,7 +3,11 @@
 import { motion } from "framer-motion";
 import { Clock, DollarSign, Heart, ChevronDown } from "lucide-react";
 
-export default function Hero() {
+interface HeroProps {
+  onCtaClick?: () => void;
+}
+
+export default function Hero({ onCtaClick }: HeroProps) {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
       {/* Background Pattern */}
@@ -52,12 +56,12 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4 sm:px-0"
         >
-          <a
-            href="#pricing"
+          <button
+            onClick={onCtaClick}
             className="px-6 sm:px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg text-base sm:text-lg transition-colors whitespace-normal sm:whitespace-nowrap"
           >
             START RECLAIMING MY TIME
-          </a>
+          </button>
           <a
             href="#how-it-works"
             className="px-6 sm:px-8 py-4 bg-transparent border-2 border-white/30 hover:border-white text-white font-semibold rounded-lg text-base sm:text-lg transition-colors"

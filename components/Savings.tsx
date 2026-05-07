@@ -3,6 +3,10 @@
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 
+interface SavingsProps {
+  onCtaClick?: () => void;
+}
+
 const comparisons = [
   { tool: "Planning Center Online", cost: "$99-299/mo", replaced: true },
   { tool: "Mailchimp/Constant Contact", cost: "$50-150/mo", replaced: true },
@@ -13,7 +17,7 @@ const comparisons = [
   { tool: "Sermonary/Logos (basic)", cost: "$20-50/mo", replaced: true },
 ];
 
-export default function Savings() {
+export default function Savings({ onCtaClick }: SavingsProps) {
   return (
     <section className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,12 +105,12 @@ export default function Savings() {
                   <span>30-day money-back guarantee</span>
                 </li>
               </ul>
-              <a
-                href="#pricing"
+              <button
+                onClick={onCtaClick}
                 className="block w-full text-center bg-white text-red-600 font-bold py-4 rounded-lg hover:bg-red-50 transition-colors"
               >
                 GET STARTED
-              </a>
+              </button>
             </div>
 
             <div className="bg-green-100 rounded-xl p-4 sm:p-6 border border-green-200">

@@ -2,7 +2,11 @@
 
 import { motion } from "framer-motion";
 
-export default function CTA() {
+interface CTAProps {
+  onCtaClick?: () => void;
+}
+
+export default function CTA({ onCtaClick }: CTAProps) {
   return (
     <section className="py-24 bg-gradient-to-br from-red-600 to-red-700 text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -21,12 +25,12 @@ export default function CTA() {
           <p className="text-lg sm:text-xl text-red-100 mb-8 sm:mb-10 max-w-2xl mx-auto px-4 sm:px-0">
             Join pastors who are reclaiming 13+ hours weekly for the ministry only they can do.
           </p>
-          <a
-            href="#pricing"
+          <button
+            onClick={onCtaClick}
             className="inline-block px-6 sm:px-10 py-4 sm:py-5 bg-white text-red-600 font-bold text-base sm:text-lg rounded-lg hover:bg-red-50 transition-colors shadow-xl whitespace-normal sm:whitespace-nowrap"
           >
             GET STARTED NOW — 30-DAY GUARANTEE
-          </a>
+          </button>
           <p className="mt-6 text-red-200 text-sm">
             No setup fees. Cancel anytime. Reclaim your calling.
           </p>

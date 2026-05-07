@@ -3,6 +3,10 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
+interface PricingProps {
+  onPlanSelect?: (plan: string) => void;
+}
+
 const plans = [
   {
     name: "Individual Pastor",
@@ -56,7 +60,7 @@ const plans = [
   },
 ];
 
-export default function Pricing() {
+export default function Pricing({ onPlanSelect }: PricingProps) {
   return (
     <section id="pricing" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -121,8 +125,8 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <a
-                href="#"
+              <button
+                onClick={() => onPlanSelect?.(plan.name)}
                 className={`block w-full text-center py-3 sm:py-4 rounded-lg font-bold transition-colors text-sm sm:text-base ${
                   plan.popular
                     ? "bg-white text-red-600 hover:bg-red-50"
@@ -130,7 +134,7 @@ export default function Pricing() {
                 }`}
               >
                 {plan.cta}
-              </a>
+              </button>
             </motion.div>
           ))}
         </div>
