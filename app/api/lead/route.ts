@@ -13,8 +13,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // 1. Add to Grawt CRM
-    const grawtResponse = await fetch('https://grawt.app/api/v1/leads', {
+    // 1. Sync to Grawt CRM (using sync endpoint for upsert)
+    const grawtResponse = await fetch('https://grawt.app/api/v1/leads/sync', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -22,15 +22,15 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         email,
-        fields: {
-          first_name: name.split(' ')[0],
-          last_name: name.split(' ').slice(1).join(' ') || '',
-          phone: phone || '',
+        first_name: name.split(' ')[0],
+        last_name: name.split(' ').slice(1).join(' ') || '',
+        phone: phone || '',
+        tags: ['pastor-suite-lead', 'pms-sequence-day-1'],
+        custom_fields: {
           church: church || '',
           plan_interest: plan || '',
-          source: 'pastor-ministry-suite-landing',
+          lead_source: 'pastor-ministry-suite-landing',
         },
-        add_tags: [plan || 'lead', 'pastor-suite', 'website-capture'],
       }),
     });
 
@@ -89,7 +89,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Lead capture error:', error);
     return NextResponse.json(
-      { error: 'Failed to process lead' },
+      { error: 'Failed to process lead', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }
