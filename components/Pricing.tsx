@@ -4,66 +4,24 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
 interface PricingProps {
-  onPlanSelect?: (plan: string) => void;
+  onCtaClick: () => void;
 }
 
-const plans = [
-  {
-    name: "Individual Pastor",
-    price: "$97",
-    description: "For solo pastors and small churches",
-    features: [
-      "All 7 AI agents",
-      "Up to 500 members",
-      "Email support",
-      "Basic integrations",
-      "Weekly bulletin auto-generation",
-      "Social media scheduling",
-      "Visitor follow-up automation",
-    ],
-    cta: "START RECLAIMING MY TIME",
-    popular: false,
-  },
-  {
-    name: "Church Plant",
-    price: "$197",
-    description: "For growing churches ready to scale",
-    features: [
-      "All 7 AI agents",
-      "Up to 1,000 members",
-      "Priority support",
-      "Full integrations",
-      "Custom workflows",
-      "Multi-staff access (3 users)",
-      "Advanced analytics",
-      "White-label options",
-    ],
-    cta: "GROW WITHOUT THE GRIND",
-    popular: true,
-  },
-  {
-    name: "Multi-Site",
-    price: "$497",
-    description: "For established churches and networks",
-    features: [
-      "All 7 AI agents",
-      "Unlimited members",
-      "Dedicated account manager",
-      "Custom development",
-      "White-label options",
-      "API access",
-      "Unlimited staff users",
-      "Onboarding training",
-    ],
-    cta: "SCALE WITH CONFIDENCE",
-    popular: false,
-  },
+const features = [
+  "24 Video Lessons (15-30 min each)",
+  "Downloadable Workbooks for Each Module",
+  "Private Community Access",
+  "4 Live Q&A Group Coaching Calls",
+  "Lifetime Access to Course Materials",
+  "30-Day Money-Back Guarantee",
+  "Bonus: Called by Name Audiobook",
+  "Bonus: 30-Day Calling Journal"
 ];
 
-export default function Pricing({ onPlanSelect }: PricingProps) {
+export default function Pricing({ onCtaClick }: PricingProps) {
   return (
-    <section id="pricing" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="py-24 bg-slate-50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,88 +30,70 @@ export default function Pricing({ onPlanSelect }: PricingProps) {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            CHOOSE YOUR
-            <span className="text-red-600"> PLAN</span>
+            Your Investment
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            30-day money-back guarantee. Cancel the clutter. Reclaim your calling.
+          <p className="text-xl text-gray-600">
+            Less than the cost of a dinner out each week—for clarity that lasts a lifetime
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-0">
-          {plans.map((plan, index) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative rounded-2xl p-6 sm:p-8 ${
-                plan.popular
-                  ? "bg-gradient-to-br from-red-600 to-red-700 text-white shadow-2xl md:scale-105"
-                  : "bg-gray-50 border border-gray-200"
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-yellow-400 text-yellow-900 px-4 py-1 rounded-full text-sm font-bold">
-                    MOST POPULAR
-                  </span>
-                </div>
-              )}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="bg-white rounded-2xl shadow-2xl overflow-hidden"
+        >
+          <div className="bg-gradient-to-br from-red-600 to-red-700 p-8 text-white text-center">
+            <p className="text-red-200 mb-2">Complete 6-Week Program</p>
+            <div className="flex items-baseline justify-center gap-2">
+              <span className="text-5xl sm:text-6xl font-bold">$297</span>
+            </div>
+            <p className="text-red-200 mt-2">or 3 payments of $107</p>
+          </div>
 
-              <h3 className={`text-xl sm:text-2xl font-bold mb-2 ${plan.popular ? "text-white" : "text-gray-900"}`}>
-                {plan.name}
-              </h3>
-              <p className={`mb-6 ${plan.popular ? "text-red-100" : "text-gray-600"}`}>
-                {plan.description}
-              </p>
+          <div className="p-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+              Everything You Get:
+            </h3>
 
-              <div className="flex items-baseline gap-2 mb-6 sm:mb-8">
-                <span className={`text-4xl sm:text-5xl font-bold ${plan.popular ? "text-white" : "text-gray-900"}`}>
-                  {plan.price}
-                </span>
-                <span className={plan.popular ? "text-red-200" : "text-gray-500"}>/month</span>
-              </div>
+            <ul className="space-y-4 mb-8">
+              {features.map((feature, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-4 h-4 text-red-600" />
+                  </div>
+                  <span className="text-gray-700">{feature}</span>
+                </li>
+              ))}
+            </ul>
 
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.popular ? "text-red-200" : "text-green-500"}`} />
-                    <span className={plan.popular ? "text-white" : "text-gray-700"}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
+            <div className="text-center">
               <button
-                onClick={() => onPlanSelect?.(plan.name)}
-                className={`block w-full text-center py-3 sm:py-4 rounded-lg font-bold transition-colors text-sm sm:text-base ${
-                  plan.popular
-                    ? "bg-white text-red-600 hover:bg-red-50"
-                    : "bg-red-600 text-white hover:bg-red-700"
-                }`}
+                onClick={onCtaClick}
+                className="w-full sm:w-auto px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-xl rounded-lg transition-colors shadow-lg"
               >
-                {plan.cta}
+                ENROLL NOW — GET CLARITY
               </button>
-            </motion.div>
-          ))}
-        </div>
+              <p className="mt-4 text-sm text-gray-500">
+                30-Day Money-Back Guarantee. No questions asked.
+              </p>
+            </div>
+          </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 text-center"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-12 bg-green-50 border border-green-200 rounded-xl p-6 text-center"
         >
-          <p className="text-gray-600 mb-4">
-            Questions? Email us at{" "}
-            <a href="mailto:reyes@agentmail.to" className="text-red-600 hover:underline">
-              reyes@agentmail.to
-            </a>
+          <p className="text-green-800 font-semibold text-lg">
+            Total Value: $1,997
           </p>
-          <p className="text-sm text-gray-500 italic">
-            "Commit to the LORD whatever you do, and he will establish your plans." — Proverbs 16:3
+          <p className="text-green-700">
+            Your Investment: $297 (Save $1,700)
           </p>
         </motion.div>
       </div>

@@ -5,17 +5,16 @@ import { motion } from "framer-motion";
 import { X, CheckCircle, Loader2 } from "lucide-react";
 
 interface LeadFormProps {
-  plan?: string;
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function LeadForm({ plan, isOpen, onClose }: LeadFormProps) {
+export default function LeadForm({ isOpen, onClose }: LeadFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    church: "",
+    struggle: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -34,7 +33,7 @@ export default function LeadForm({ plan, isOpen, onClose }: LeadFormProps) {
         },
         body: JSON.stringify({
           ...formData,
-          plan: plan || "Individual Pastor",
+          source: "called-by-name-course"
         }),
       });
 
@@ -45,7 +44,7 @@ export default function LeadForm({ plan, isOpen, onClose }: LeadFormProps) {
         setTimeout(() => {
           onClose();
           setIsSuccess(false);
-          setFormData({ name: "", email: "", phone: "", church: "" });
+          setFormData({ name: "", email: "", phone: "", struggle: "" });
         }, 3000);
       } else {
         setError(data.error || "Something went wrong");
@@ -70,7 +69,7 @@ export default function LeadForm({ plan, isOpen, onClose }: LeadFormProps) {
         <div className="p-6 sm:p-8">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-2xl font-bold text-gray-900">
-              {isSuccess ? "Welcome!" : "Get Started"}
+              {isSuccess ? "Welcome!" : "Get Clarity on Your Calling"}
             </h3>
             <button
               onClick={onClose}
@@ -87,19 +86,11 @@ export default function LeadForm({ plan, isOpen, onClose }: LeadFormProps) {
                 Thank you, {formData.name.split(" ")[0]}!
               </p>
               <p className="text-gray-600">
-                Check your email for next steps. We&apos;ll be in touch soon!
+                Check your email for next steps. We'll be in touch soon!
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              {plan && (
-                <div className="bg-red-50 border border-red-100 rounded-lg p-3 mb-4">
-                  <p className="text-sm text-red-800">
-                    Selected Plan: <span className="font-semibold">{plan}</span>
-                  </p>
-                </div>
-              )}
-
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Full Name *
@@ -112,7 +103,7 @@ export default function LeadForm({ plan, isOpen, onClose }: LeadFormProps) {
                     setFormData({ ...formData, name: e.target.value })
                   }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                  placeholder="Pastor John Smith"
+                  placeholder="Your name"
                 />
               </div>
 
@@ -128,7 +119,7 @@ export default function LeadForm({ plan, isOpen, onClose }: LeadFormProps) {
                     setFormData({ ...formData, email: e.target.value })
                   }
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                  placeholder="pastor@church.com"
+                  placeholder="you@example.com"
                 />
               </div>
 
@@ -149,16 +140,15 @@ export default function LeadForm({ plan, isOpen, onClose }: LeadFormProps) {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Church Name
+                  What's your biggest struggle with finding your calling?
                 </label>
-                <input
-                  type="text"
-                  value={formData.church}
+                <textarea
+                  value={formData.struggle}
                   onChange={(e) =>
-                    setFormData({ ...formData, church: e.target.value })
+                    setFormData({ ...formData, struggle: e.target.value })
                   }
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                  placeholder="Grace Community Church"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent h-24"
+                  placeholder="I feel like I should know my calling but..."
                 />
               </div>
 
@@ -179,7 +169,7 @@ export default function LeadForm({ plan, isOpen, onClose }: LeadFormProps) {
                     Submitting...
                   </>
                 ) : (
-                  "GET STARTED — 30-DAY GUARANTEE"
+                  "GET STARTED — $297"
                 )}
               </button>
 

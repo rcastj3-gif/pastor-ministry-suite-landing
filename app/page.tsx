@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Hero from "@/components/Hero";
-import Agents from "@/components/Agents";
-import Savings from "@/components/Savings";
+import Problem from "@/components/Problem";
+import Solution from "@/components/Solution";
+import Modules from "@/components/Modules";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
@@ -13,27 +14,25 @@ import LeadForm from "@/components/LeadForm";
 
 export default function Home() {
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<string>("");
 
-  const openForm = (plan?: string) => {
-    setSelectedPlan(plan || "");
+  const openForm = () => {
     setIsFormOpen(true);
   };
 
   return (
     <main>
-      <Hero onCtaClick={() => openForm()} />
-      <Agents />
-      <Savings onCtaClick={() => openForm()} />
+      <Hero onCtaClick={openForm} />
+      <Problem />
+      <Solution />
+      <Modules />
       <Testimonials />
-      <Pricing onPlanSelect={openForm} />
+      <Pricing onCtaClick={openForm} />
       <FAQ />
-      <CTA onCtaClick={() => openForm()} />
+      <CTA onCtaClick={openForm} />
       <Footer />
       <LeadForm
         isOpen={isFormOpen}
         onClose={() => setIsFormOpen(false)}
-        plan={selectedPlan}
       />
     </main>
   );
